@@ -251,8 +251,7 @@
     </div>
 
     <script>
-        // Using free WebSocket-as-a-Service from webhook.site
-        const ws = new WebSocket('wss://ws.webhook.site/9a742a09-33eb-4f34-9317-659a8a81cdd5');
+        const ws = new WebSocket('wss://free.blr2.piesocket.com/v3/1?api_key=tV2ebRG2zxrpcDttzNQs5LN1wBgyPbzcshdtKuMc&notify_self=1');
         
         function sendMessage() {
             const input = document.getElementById('message-input');
@@ -285,15 +284,11 @@
                 messageDiv.remove();
             }, 5000);
         };
-
-        // Handle Enter key
         document.getElementById('message-input').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 sendMessage();
             }
         });
-
-        // Connection status indicator
         ws.onopen = () => {
             console.log('Connected to chat!');
             const status = document.getElementById('status');
@@ -307,8 +302,6 @@
             status.textContent = 'Connection error';
             status.classList.add('error');
         };
-
-        // Dark mode toggle
         function toggleTheme() {
             const body = document.body;
             const themeToggle = document.querySelector('.theme-toggle');
